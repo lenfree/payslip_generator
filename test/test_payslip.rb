@@ -41,5 +41,13 @@ describe 'Payslip' do
     it 'should return 11371' do
       assert_equal(11371, @high_income.net_income)
     end
+
+    it 'should return 450' do
+      assert_equal(450, @entry.super)
+    end
+  
+    it 'should return 1667' do
+        assert_equal(1667, @high_income.super)
+    end
   end
 end

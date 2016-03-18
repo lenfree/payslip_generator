@@ -37,6 +37,10 @@ module Payslip
     def net_income
       gross_income - income_tax
     end
+
+    def super
+      (gross_income * (@user[:"super_rate_%"].to_f / 100)).round(0)
+    end
   end
 end
 
