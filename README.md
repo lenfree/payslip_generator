@@ -5,9 +5,8 @@ A simple script that generates a monthly payslip
 from a input csv file. This calculates 2012-2013
 tax rates.
 
-# Note:
+Note:
 =======
-
 Configuring environment with Ruby, rbenv and bundler is not
 in this scope.
 
