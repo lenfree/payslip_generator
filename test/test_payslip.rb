@@ -1,9 +1,10 @@
 require 'csv'
-require 'pry'
 require 'minitest/autorun'
 require 'minitest/reporters'
 require 'minitest/spec'
 require_relative './../payslip'
+require 'pry'
+
 Minitest::Reporters.use!(Minitest::Reporters::SpecReporter.new)
 
 describe 'Payslip' do
