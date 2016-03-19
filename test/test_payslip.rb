@@ -60,12 +60,26 @@ describe 'Payslip' do
     end
 
     it 'should return csv output' do
-      output = ["David Rudd,01 March - 31 March,5004,922,4082,450"]
+      output = {
+        'name'         => 'David Rudd',
+        'pay period'   => '01 March - 31 March',
+        'gross income' => '5004',
+        'income tax'   => '922',
+        'net income'   => '4082',
+        'super'        => '450'
+      }
       assert_equal(output, @entry.generate_output_csv)
     end
 
     it 'should return csv output' do
-      output = ["Jane Doe,01 March - 31 March,16667,5296,11371,1667"]
+      output = {
+        'name'         => 'Jane Doe',
+        'pay period'   => '01 March - 31 March',
+        'gross income' => '16667',
+        'income tax'   => '5296',
+        'net income'   => '11371',
+        'super'        => '1667'
+      }
       assert_equal(output, @high_income.generate_output_csv)
     end
   end

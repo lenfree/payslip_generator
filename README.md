@@ -36,5 +36,6 @@ Output file is hardcoded with "output.csv". Hence, once generate_payslip is
 executed, below will be written into this output file
 
 ```
+name,pay period,gross income,income tax,net income,super
 David Rudd,01 March - 31 March,5004,922,4082,450
 ```

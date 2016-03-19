@@ -14,6 +14,7 @@ INPUT_FILE = "input.csv".freeze
 employees = CSV.read(INPUT_FILE, headers: true).map{ |row| row.to_hash }
 Array(employees).lazy.each do |employee|
   CSV.open(OUTPUT_FILE, "a+") do |csv|
-      csv << Payslip::Generate.new(user: employee).generate_output_csv
+    csv << Payslip::Generate.new(user: employee).generate_output_csv.keys if csv.count.eql? 0
+    csv << Payslip::Generate.new(user: employee).generate_output_csv.values
   end
 end

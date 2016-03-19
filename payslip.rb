@@ -50,8 +50,14 @@ module Payslip
     end
 
     def generate_output_csv
-      ["#{first_name} #{last_name},#{get_month},#{gross_income},"\
-        "#{income_tax},#{net_income},#{superannuation}"]
+      {
+        'name'         => "#{first_name} #{last_name}",
+        'pay period'   => "#{get_month}",
+        'gross income' => "#{gross_income}",
+        'income tax'   => "#{income_tax}",
+        'net income'   => "#{net_income}",
+        'super'        => "#{superannuation}"
+      }
     end
   end
 end
