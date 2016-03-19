@@ -1,4 +1,4 @@
-require 'smarter_csv'
+require 'csv'
 require 'pry'
 require 'minitest/autorun'
 require 'minitest/reporters'
@@ -8,7 +8,7 @@ Minitest::Reporters.use!(Minitest::Reporters::SpecReporter.new)
 
 describe 'Payslip' do
   before do
-    csv = SmarterCSV.process('input.csv')
+    csv = CSV.read('input.csv', headers: true).map{ |row| row.to_hash }
     @entry = Payslip::Generate.new(user: csv.first)
     @high_income = Payslip::Generate.new(user: csv.last)
   end
