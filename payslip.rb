@@ -35,12 +35,24 @@ module Payslip
     end
 
     def net_income
-      gross_income.to_f - income_tax.to_f
+      (gross_income.to_f - income_tax.to_f).round(0)
     end
 
-    def super
+    def first_name
+      @user['first name']
+    end
+
+    def last_name
+      @user[' last name']
+    end
+
+    def superannuation
       (gross_income.to_f * (@user[" super rate (%)"].to_f / 100)).round(0)
     end
 
+    def generate_output_csv
+      ["#{first_name} #{last_name},#{get_month},#{gross_income},"\
+        "#{income_tax},#{net_income},#{superannuation}"]
+    end
   end
 end

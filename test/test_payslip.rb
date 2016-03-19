@@ -14,8 +14,16 @@ describe 'Payslip' do
   end
 
   describe 'calculate' do
+    it 'should return David' do
+      assert_equal('David', @entry.first_name)
+    end
+
+    it 'should return Rudd' do
+      assert_equal('Rudd', @entry.last_name)
+    end
+
     it 'should return March' do
-      assert_equal("01 March - 31 March", @entry.get_month)
+      assert_equal('01 March - 31 March', @entry.get_month)
     end
 
     it 'should return 5004' do
@@ -43,11 +51,21 @@ describe 'Payslip' do
     end
 
     it 'should return 450' do
-      assert_equal(450, @entry.super)
+      assert_equal(450, @entry.superannuation)
     end
   
     it 'should return 1667' do
-        assert_equal(1667, @high_income.super)
+        assert_equal(1667, @high_income.superannuation)
+    end
+
+    it 'should return csv output' do
+      output = ["David Rudd,01 March - 31 March,5004,922,4082,450"]
+      assert_equal(output, @entry.generate_output_csv)
+    end
+
+    it 'should return csv output' do
+      output = ["Jane Doe,01 March - 31 March,16667,5296,11371,1667"]
+      assert_equal(output, @high_income.generate_output_csv)
     end
   end
 end
