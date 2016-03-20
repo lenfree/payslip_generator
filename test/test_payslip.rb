@@ -9,7 +9,7 @@ Minitest::Reporters.use!(Minitest::Reporters::SpecReporter.new)
 
 describe 'Payslip' do
   before do
-    csv = CSV.read('input.csv', headers: true).map{ |row| row.to_hash }
+    csv = CSV.read(File.dirname(__FILE__) + '/' + 'input.csv', headers: true).map{ |row| row.to_hash }
     @entry = Payslip::Generate.new(user: csv.first)
     @high_income = Payslip::Generate.new(user: csv.last)
   end
